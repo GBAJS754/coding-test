@@ -1,3 +1,3 @@
 -- 코드를 입력하세요
-SELECT count(distinct NAME) as count
-from ANIMAL_INS
+SELECT count(NAME) as count
+from (select name from ANIMAL_INS group by name) a
