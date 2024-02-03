@@ -7,4 +7,3 @@ join (select VIEWS, BOARD_ID
     limit 1) as b
 on a.BOARD_ID = b.BOARD_ID
 order by a.FILE_ID desc
-
