@@ -1,19 +1,17 @@
 function solution(participant, completion) {
-    let answer;
-    const map = new Map();
-    
-    participant.forEach((p, index)=>{
-        let b = completion[index];
-        
-        map.set(p, (map.get(p) || 0)+1)
-        map.set(b, (map.get(b) || 0)-1)
+    let answer = 0;
+    const map = new Map()
+    participant.forEach((v)=>{
+        map.set(v,map.get(v)+1 || 1)
     })
-
-    map.forEach((key, value)=>{
-        if(key>0){
-            answer = value
+    completion.forEach((v)=>{
+        map.set(v,map.get(v)-1)
+    })
+    for([key,value] of map){
+        if(value !==0 ){
+            answer = key
         }
-    })
- 
+    }
+    
     return answer
 }
