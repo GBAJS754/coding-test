@@ -26,7 +26,15 @@ function solution(files) {
         newFiles.push([head,number,tail])
     }
     
-    newFiles.sort((a,b)=> a[0].localeCompare(b[0], "en-u-kn-true", {sensitivity: 'base'}) || a[1] - b[1])
+    newFiles.sort((a, b) => {
+      if (a[0].toLowerCase() !== b[0].toLowerCase()) {
+        return a[0].toLowerCase() > b[0].toLowerCase() ? 1 : -1;
+      } else {
+        return Number(a[1]) - Number(b[1])
+      }
+    });
+
+    // console.log(newFiles)
     return newFiles.map((v)=>v.join(""))
     
     
